@@ -11,6 +11,8 @@ sealed class ApiException(msg: String, val code: Int) : Exception(msg)
 
 class NotFoundException(msg: String, code: Int = HttpStatus.NOT_FOUND.value()) : ApiException(msg, code)
 class BadRequestException(msg: String) : ApiException(msg, HttpStatus.BAD_REQUEST.value())
+class TimeOutException(msg: String) : ApiException(msg, HttpStatus.REQUEST_TIMEOUT.value())
+class ServiceUnavailableException(msg: String) : ApiException(msg, HttpStatus.SERVICE_UNAVAILABLE.value())
 
 
 @ControllerAdvice
